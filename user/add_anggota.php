@@ -131,27 +131,11 @@ if (isset($_POST["tambah"])){
 
     $result = mysqli_query($koneksi, $query);
     if($result){
-        echo'<div class="card mb-4">
-    <div class="card-body"><div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h6><i class="fas fa-check"></i><b> Success!</b></h6>
-                    A simple success alert—check it out!
-                  </div>
-    </div>
-</div>
-        ';
-        echo "<script>window.location.href = 'index.php?page=data_anggota';</script>";
+      echo "<script>alert('Berhasil Terdaftar');</script>";
+      echo "<script>window.location.href = 'index.php';</script>";
     } else {
-        echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h6><i class="fas fa-ban"></i><b> Stop!</b></h6>
-                    A simple danger alert—check it out!
-                  </div>';
-        echo "<script>window.location.href = 'index.php?page=add_anggota';</script>";        
+      echo "<script>alert('Data gagal ditambah');</script>";
+      echo "<script>window.location.href = 'index.php?page=add_anggota';</script>";     
     }
 }
 
