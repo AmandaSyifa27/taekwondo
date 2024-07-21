@@ -93,12 +93,6 @@ if(!isset($_SESSION['username']) || $_SESSION['status'] != 'admin'){
         ACCOUNT
       </div>
       <li class="nav-item">
-        <a class="nav-link" href="../sign_up.php">
-          <img width="24px" src="../img/sign-up.png" alt="">
-          <span>Sign Up</span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="../logout.php">
           <img width="24px" src="../img/logout.png" alt="">
           <span>Log Out</span>

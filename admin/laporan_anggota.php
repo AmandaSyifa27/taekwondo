@@ -48,7 +48,6 @@
                     $i = 1;
                     while ($data = mysqli_fetch_assoc($result)):
                     ?>
-                    <p>cari<?= $cari;?></p>
                     <tr>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $i++ ?></td>
                         <td style="border: 1px solid #000; padding: 3px 5px"><img src="foto_anggota/<?= $data['foto'] ?>" alt="Foto Anggota" width="100px"></td>
@@ -73,7 +72,7 @@
         <tr>
             <td style="text-align: center;">Admin,
                 <p>&nbsp;</p>
-                <u><b>Belva Calistung</b></u>
+                <u><b>Belva Calista</b></u>
             </td>
         </tr>
     </table>

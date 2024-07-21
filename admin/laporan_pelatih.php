@@ -42,7 +42,6 @@
                     $i = 1;
                     while ($data = mysqli_fetch_assoc($result)):
                     ?>
-                    <p>cari<?= $cari;?></p>
                     <tr>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $i++ ?></td>
                         <td style="border: 1px solid #000; padding: 3px 5px"><img src="foto_pelatih/<?= $data['foto'] ?>" alt="Foto Pelatih" width="100px"></td>

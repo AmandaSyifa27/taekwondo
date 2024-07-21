@@ -16,7 +16,8 @@
 
   <style>
     .bg-image {
-      background-image: url('img/tkd-bg.jfif');
+      /* background-image: url('img/tkd2.jpg'); */
+      background-image: url('img/tkd3.jpg');
       height: 100vh;
       background-size: cover;
       background-repeat: no-repeat;
@@ -59,7 +60,7 @@
               <form class="user" method="POST">
                 <div class="form-group">
                   <label for="nama_user">Nama</label>
-                  <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nama" name="nama_user" required>
+                  <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nama Lengkap" name="nama_user" required>
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>

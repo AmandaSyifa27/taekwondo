@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   
   <style>
     .bg-image {
-      background-image: url('img/tkd-bg.jfif');
+      background-image: url('img/tkd1.jpg');
       height: 100vh;
       background-size: cover;
       background-repeat: no-repeat;
