@@ -39,18 +39,6 @@
             ?>
                   <form action="index.php?page=multi_delete" method="post">
                   <div class="mb-3">
-                  <a href="index.php?page=add_anggota" class="btn btn-primary btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-plus-circle"></i>
-                    </span>
-                    <span class="text">Tambah Anggota</span>
-                  </a>
-                  <button onclick="return confirm('Apakah ingin menghapus semua data ini?')" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                    </span>
-                    <span class="text">Delete Selected Data</span>
-                  </button>
                   <?php
                   $cari = isset($_POST['kunci']) ? $_POST['kunci'] : '';
                   ?>

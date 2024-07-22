@@ -1,3 +1,21 @@
+<?php
+require '../koneksi.php';
+
+$awal = isset($_GET['awal']) ? $_GET['awal'] : '';
+$akhir = isset($_GET['akhir']) ? $_GET['akhir'] : '';
+$cari = isset($_GET['cari']) ? $_GET['cari'] : '';
+
+$query = "SELECT * FROM tbl_anggota 
+          INNER JOIN tbl_sabuk ON tbl_anggota.id_sabuk = tbl_sabuk.id_sabuk 
+          WHERE (tbl_anggota.nama_anggota LIKE '%$cari%' OR tbl_sabuk.tingkatan LIKE '%$cari%')";
+
+if (!empty($awal) && !empty($akhir)) {
+    $query .= " AND tbl_anggota.tgl_daftar BETWEEN '$awal' AND '$akhir'";
+}
+
+$result = mysqli_query($koneksi, $query);
+                    $i = 1;
+?>
 <body onload="javascript:window.print()" style="margin:0 auto; width: 1000px;">
     <img src="../img/tkd.png" alt="" style="width: 10%; float: left;">
     <table width="90%" cellspacing="0" cellpadding="0">
@@ -16,6 +34,10 @@
     <label style="font-size: 20; text-align: center;" for=""><u>Laporan Data Anggota</u></label>
     <p>&nbsp;</p>
 
+    <?php if (!empty($awal) && !empty($akhir)): ?>
+        <p>Pendaftar dari tanggal <?= date("d-m-Y", strtotime($awal)) ?> sampai <?= date("d-m-Y", strtotime($akhir)) ?></p>
+    <?php endif; ?>
+
     <table width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #000; padding: 3px 5px">
     <thead>
                     <tr style="background-color: lightgray;">
@@ -33,19 +55,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    require '../koneksi.php';
-
-                    $cari = isset($_GET['cari']) ? $_GET['cari'] : '';
-
-                    if (!empty($cari)) {
-                        $query = "SELECT * FROM tbl_anggota INNER JOIN tbl_sabuk ON tbl_sabuk.id_sabuk = tbl_anggota.id_sabuk WHERE tbl_anggota.nama_anggota LIKE '%$cari%' OR tbl_sabuk.tingkatan LIKE '%$cari%'";
-                    } else {
-                        $query = "SELECT * FROM tbl_anggota INNER JOIN tbl_sabuk ON tbl_sabuk.id_sabuk = tbl_anggota.id_sabuk";
-                    }
-
-                    $result = mysqli_query($koneksi, $query);
-                    $i = 1;
+                <?php
                     while ($data = mysqli_fetch_assoc($result)):
                     ?>
                     <tr>

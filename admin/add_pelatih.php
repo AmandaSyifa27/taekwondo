@@ -38,15 +38,30 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-file">
-                        <input type="file" name="foto" class="custom-file-input" id="foto">
+                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)">
                         <label class="custom-file-label" for="foto">Upload Foto</label>
+                      </div>
+                      <div class="mt-3">
+                        <img id="preview" src="" alt="Pratinjau Foto" style="display: none; width: 100px;">
                       </div>
                     </div>
                     <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
                   </form>
                 </div>
 </div>
-
+<script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById('preview');
+      output.src = dataURL;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
 <?php
 
 require "../koneksi.php";

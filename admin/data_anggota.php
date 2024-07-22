@@ -16,30 +16,49 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
+                <label for="awal">Tanggal Awal</label>
+                <input type="date" name="awal" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="akhir">Tanggal Akhir</label>
+                <input type="date" name="akhir" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
                 <input type="submit" name="cari" class="btn btn-secondary mb-1" value="Cari Data">
             </div>
         </div>
     </div>
 </form>
 
+
                 <div class="table-responsive p-3">
                 <?php
-            
-            if(isset($_POST['cari'])){
-                $kunci = $_POST['kunci'];
-                require '../koneksi.php';
-                    $query = "SELECT * FROM tbl_anggota INNER JOIN tbl_sabuk ON tbl_anggota.id_sabuk = tbl_sabuk.id_sabuk WHERE tbl_anggota.nama_anggota LIKE '%$kunci%' OR tbl_sabuk.tingkatan LIKE '%$kunci%'";
-                    $result = mysqli_query($koneksi, $query);
-                    $i = 1;
-            } else{
-                require '../koneksi.php';
-                    $query = "SELECT * FROM tbl_anggota INNER JOIN tbl_sabuk ON tbl_sabuk.id_sabuk = tbl_anggota.id_sabuk";
-                    $result = mysqli_query($koneksi, $query);
-                    $i = 1;
-                
-            }
-            
-            ?>
+require '../koneksi.php';
+
+$awal = isset($_POST['awal']) ? $_POST['awal'] : '';
+$akhir = isset($_POST['akhir']) ? $_POST['akhir'] : '';
+$kunci = isset($_POST['kunci']) ? $_POST['kunci'] : '';
+
+if(isset($_POST['cari'])){
+    $query = "SELECT * FROM tbl_anggota 
+              INNER JOIN tbl_sabuk ON tbl_anggota.id_sabuk = tbl_sabuk.id_sabuk 
+              WHERE (tbl_anggota.nama_anggota LIKE '%$kunci%' OR tbl_sabuk.tingkatan LIKE '%$kunci%')";
+
+    if (!empty($awal) && !empty($akhir)) {
+        $query .= " AND tbl_anggota.tgl_daftar BETWEEN '$awal' AND '$akhir'";
+    }
+} else {
+    $query = "SELECT * FROM tbl_anggota 
+              INNER JOIN tbl_sabuk ON tbl_sabuk.id_sabuk = tbl_anggota.id_sabuk";
+}
+
+$result = mysqli_query($koneksi, $query);
+$i = 1;
+?>
             
                   <form method="post" action="index.php?page=multi_delete"> 
               <div class="mb-3">
@@ -58,7 +77,7 @@
                   <?php
             $cari = isset($_POST['kunci']) ? $_POST['kunci'] : '';
             ?>
-            <a href="laporan_anggota.php?cari=<?= urlencode($cari) ?>" target="_blank" class="btn btn-info btn-icon-split">
+            <a href="laporan_anggota.php?cari=<?= urlencode($cari) ?>&awal=<?= $awal ?>&akhir=<?= $akhir ?>" target="_blank" class="btn btn-info btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-print"></i>
                 </span>

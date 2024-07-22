@@ -92,17 +92,32 @@
                         </div>
                         <div class="form-group">
                           <div class="custom-file">
-                            <input type="file" name="foto" class="custom-file-input" id="foto">
+                            <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)">
                             <label class="custom-file-label" for="foto">Upload Foto</label>
+                          </div>
+                          <div class="mt-3">
+                            <img id="preview" src="" alt="Pratinjau Foto" style="display: none; width: 100px;">
                           </div>
                         </div>              
                     <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
                   </form>
                 </div>
-</div>
 
+<script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById('preview');
+      output.src = dataURL;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
 <?php
-
+date_default_timezone_set('Asia/Jakarta');
 require "../koneksi.php";
 
 if (isset($_POST["tambah"])){
@@ -116,6 +131,7 @@ if (isset($_POST["tambah"])){
     $tinggi_badan = $_POST["tinggi_badan"];
     $pekerjaan = $_POST["pekerjaan"];
     $tingkatan = $_POST["tingkatan"];
+    $tgl_daftar = date("Y-m-d");
 
     // Foto
     $nama = $_FILES['foto']['name'];
@@ -127,32 +143,15 @@ if (isset($_POST["tambah"])){
     // upload file
     move_uploaded_file($lokasi, "$folder/$nama_file");
 
-    $query = "INSERT INTO tbl_anggota (`nama_anggota`, `alamat`, `tgl_lahir`, `tempat_lahir`, `jk`, `no_hp`, `berat_badan`, `tinggi_badan`, `pekerjaan`, `id_sabuk`, `foto`) VALUES('$nama_anggota','$alamat','$tgl_lahir','$tempat_lahir','$jk','$no_hp','$berat_badan','$tinggi_badan','$pekerjaan','$tingkatan','$nama_file')";
+    $query = "INSERT INTO tbl_anggota (`nama_anggota`, `alamat`, `tgl_lahir`, `tempat_lahir`, `jk`, `no_hp`, `berat_badan`, `tinggi_badan`, `pekerjaan`, `id_sabuk`, `tgl_daftar`, `foto`) VALUES('$nama_anggota','$alamat','$tgl_lahir','$tempat_lahir','$jk','$no_hp','$berat_badan','$tinggi_badan','$pekerjaan','$tingkatan', '$tgl_daftar', '$nama_file')";
 
     $result = mysqli_query($koneksi, $query);
     if($result){
-        echo'<div class="card mb-4">
-    <div class="card-body"><div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h6><i class="fas fa-check"></i><b> Success!</b></h6>
-                    A simple success alert—check it out!
-                  </div>
-    </div>
-</div>
-        ';
+        echo"<script>alert('Data berhasil ditambah');</script>";
         echo "<script>window.location.href = 'index.php?page=data_anggota';</script>";
     } else {
-        echo '<div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h6><i class="fas fa-ban"></i><b> Stop!</b></h6>
-                    A simple danger alert—check it out!
-                  </div>';
+        echo "<script>alert('Data gagal ditambah');</script>";
         echo "<script>window.location.href = 'index.php?page=add_anggota';</script>";        
     }
 }
-
 ?>
