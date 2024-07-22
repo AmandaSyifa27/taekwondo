@@ -25,13 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
   } else {
     echo "<script language='Javascript'>
-      alert('Username dan Password Salah');
+      alert('Username atau Password Salah');
       document.location='login.php';
       </script>";
   }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

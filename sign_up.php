@@ -99,8 +99,8 @@
 
 
 <?php
-
 require "koneksi.php";
+session_start();
 
 if(isset($_POST['sign-up'])){
   $nama_user = $_POST['nama_user'];
@@ -110,13 +110,17 @@ if(isset($_POST['sign-up'])){
 
   $query = "INSERT INTO tbl_user(`nama_user`, `username`, `password`, `status`) VALUES('$nama_user', '$username', '$password','$status')";
   $result = mysqli_query($koneksi, $query);
+
   if($result){
+    // Set session variables
+    $_SESSION['username'] = $username;
+    $_SESSION['status'] = $status;
+
     echo "<script>alert('Sign Up Berhasil');</script>";
     echo "<script>window.location.href = 'user/index.php';</script>";
-} else {
+  } else {
     echo "<script>alert('Sign Up Gagal');</script>";
-    // echo "<script>window.location.href = 'index.php?';</script>";        
+    // echo "<script>window.location.href = 'index.php';</script>";        
+  }
 }
-}
-
 ?>
