@@ -1,12 +1,22 @@
 <?php
 session_start();
-
+include "../koneksi.php";
 if(!isset($_SESSION['username']) || $_SESSION['status'] != 'admin'){
     echo "<script language='Javascript'>
     alert('Anda tidak memiliki akses ke halaman ini!');
     document.location='../index.php';
     </script>";
     exit;
+}
+$query = "SELECT * FROM tbl_user WHERE id_user = 1";
+$result = mysqli_query($koneksi, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $nama_admin = $row['nama_user'];
+    $foto = $row['foto'];
+} else {
+    $nama_admin = "gada";
 }
 ?>
 
@@ -24,6 +34,7 @@ if(!isset($_SESSION['username']) || $_SESSION['status'] != 'admin'){
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../css/ruang-admin.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -109,6 +120,25 @@ if(!isset($_SESSION['username']) || $_SESSION['status'] != 'admin'){
           <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="../img/<?= $foto; ?>" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small"><?= $nama_admin; ?></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="index.php?page=admin_settings">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../logout.php">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+            </li>
+          </ul>
         </nav>
         <!-- Topbar -->
 
@@ -156,6 +186,9 @@ if(!isset($_SESSION['username']) || $_SESSION['status'] != 'admin'){
                 break;
               case "multi_delete":
                 include "multi_delete.php";
+                break;
+              case "admin_settings":
+                include "admin_settings.php";
                 break;
               case "404":
                 include "404.php";

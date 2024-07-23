@@ -104,7 +104,51 @@
             </div>
         </div>
     </div>
-
+<!-- Athlete -->
+    <div class="row mb-3">
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <div class="card-atlet h-100 text-center">
+      <div class="d-flex justify-content-center mt-3">
+        <img src="../img/Belva.png" alt="Belva" class="atlet" style="width: 80%;">
+      </div>
+      <div class="card-body cb-atlet">
+        <ul class="list-unstyled text-left">
+          <li class="mb-2"><strong>Juara 3</strong> Poomsae Individu Putri PORPROV XIV JAWA BARAT 2022</li>
+          <li class="mb-2"><strong>Juara 1</strong> Poomsae Pair Kejuaraan Yogyakarta International Open 2023</li>
+          <li><strong>Juara 2</strong> Poomsae Pair Kejuaraan Bhayangkara Presisi 2024</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <div class="card-atlet h-100 text-center">
+      <div class="d-flex justify-content-center mt-3">
+        <img src="../img/Arrifat.png" alt="Arrifat" class="atlet" style="width: 80%;">
+      </div>
+      <div class="card-body cb-atlet">
+        <ul class="list-unstyled text-left">
+          <li class="mb-2"><strong>Juara 3</strong> Poomsae Individu Putra PORPROV XIV JAWA BARAT 2022</li>
+          <li class="mb-2"><strong>Juara 1</strong> Poomsae Pair Kejuaraan Yogyakarta International Open 2023</li>
+          <li><strong>Juara 2</strong> Poomsae Pair Kejuaraan Bhayangkara Presisi 2024</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <div class="card-atlet h-100 text-center">
+      <div class="d-flex justify-content-center mt-3">
+        <img src="../img/Vilvi.png" alt="Vilvi" class="atlet" style="width: 80%;">
+      </div>
+      <div class="card-body cb-atlet">
+        <ul class="list-unstyled text-left">
+          <li class="mb-2"><strong>Juara 3</strong> Poomsae Individu Putri Kejuaraan Yogyakarta International Open 2023</li>
+          <li class="mb-2"><strong>Juara 2</strong> Poomsae Individu Putri Kejuaraan Indonesia Expo Battle 2021</li>
+          <li><strong>Atlet Terbaik</strong> Poomsae Putri Kejuaraan Raos Open 2023</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <?php

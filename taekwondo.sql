@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2024 at 02:47 PM
+-- Generation Time: Jul 23, 2024 at 07:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,6 +39,7 @@ CREATE TABLE `tbl_anggota` (
   `tinggi_badan` int(3) NOT NULL,
   `pekerjaan` varchar(50) NOT NULL,
   `id_sabuk` int(3) NOT NULL,
+  `tgl_daftar` date DEFAULT NULL,
   `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -46,15 +47,18 @@ CREATE TABLE `tbl_anggota` (
 -- Dumping data for table `tbl_anggota`
 --
 
-INSERT INTO `tbl_anggota` (`id_anggota`, `nama_anggota`, `alamat`, `tgl_lahir`, `tempat_lahir`, `jk`, `no_hp`, `berat_badan`, `tinggi_badan`, `pekerjaan`, `id_sabuk`, `foto`) VALUES
-(3, 'Amanda szzz', ' alamat alamat alamat', '2024-07-02', 'Indramayu', 'Laki-Laki', '0876942233345', 545, 547, 'Nganggurrr', 6, '861-Download_premium_png_of_Side_view_of_a_gray_in_3D_about_car_png_side_view__car__convertible_car__car_modern__and_cabriolet_563927-removebg-preview.png'),
-(5, 'Nabila', ' address', '2024-07-04', 'cirebon', 'Perempuan', '4557545', 45, 445, 'mahasiswa', 12, '63-Screenshot (300).png'),
-(6, 'Amanda', ' apaya', '2024-07-27', 'cirebon', 'Perempuan', '7645764557', 45, 456, 'IRT', 3, '400-8f120301ceaadfa6557e18aacf33a88a.png'),
-(7, 'Belva Calistung', ' alamtas', '2024-08-03', 'Bandung', 'Perempuan', '0876942233347', 456, 456, 'buli', 16, '180-Screenshot (295).png'),
-(8, 'Felicia', ' Deps', '2024-07-05', 'Cirebon', 'Perempuan', '0854864258', 20, 100, '-', 3, '789-Screenshot (300).png'),
-(9, 'Nida', ' Imy', '2024-07-26', 'Indramayu', 'Perempuan', '086425677', 24, 25, 'iya', 15, '127-girl.png'),
-(10, 'Elang', 'Depok ', '2024-07-05', 'Depok', 'Laki-Laki', '4557545', 30, 130, 'Pelajar', 8, '683-luffy.jpg'),
-(11, 'Ardi', ' Indonesia', '2024-07-27', 'Indramayu', 'Laki-Laki', '7645764557', 45, 456, 'Pelajar', 8, '55-moon2.jpg');
+INSERT INTO `tbl_anggota` (`id_anggota`, `nama_anggota`, `alamat`, `tgl_lahir`, `tempat_lahir`, `jk`, `no_hp`, `berat_badan`, `tinggi_badan`, `pekerjaan`, `id_sabuk`, `tgl_daftar`, `foto`) VALUES
+(3, 'Amanda szzz', ' alamat alamat alamat', '2024-07-02', 'Indramayu', 'Laki-Laki', '0876942233345', 545, 547, 'Nganggurrr', 6, '2024-06-12', '861-Download_premium_png_of_Side_view_of_a_gray_in_3D_about_car_png_side_view__car__convertible_car__car_modern__and_cabriolet_563927-removebg-preview.png'),
+(5, 'Nabila', ' address', '2024-07-04', 'cirebon', 'Perempuan', '4557545', 45, 445, 'mahasiswa', 12, '2024-06-12', '63-Screenshot (300).png'),
+(6, 'Amanda', ' apaya', '2024-07-27', 'cirebon', 'Perempuan', '7645764557', 45, 456, 'IRT', 3, '2024-06-26', '400-8f120301ceaadfa6557e18aacf33a88a.png'),
+(7, 'Belva Calistung', ' alamtas', '2024-08-03', 'Bandung', 'Perempuan', '0876942233347', 456, 456, 'buli', 16, '2024-06-21', '180-Screenshot (295).png'),
+(8, 'Felicia', ' Deps', '2024-07-05', 'Cirebon', 'Perempuan', '0854864258', 20, 100, '-', 3, '2024-05-06', '789-Screenshot (300).png'),
+(9, 'Nida', ' Imy', '2024-07-26', 'Indramayu', 'Perempuan', '086425677', 24, 25, 'iya', 15, '2024-07-11', '127-girl.png'),
+(10, 'Elang', 'Depok ', '2024-07-05', 'Depok', 'Laki-Laki', '4557545', 30, 130, 'Pelajar', 8, '2024-07-25', '969-Screenshot (214).png'),
+(11, 'Ardi', ' Indonesia', '2024-07-27', 'Indramayu', 'Laki-Laki', '7645764557', 45, 456, 'Pelajar', 8, '2024-05-29', '91-DSC01932.JPG'),
+(12, 'Nayla', 'Yogya ', '2024-07-11', 'Indramayu', 'Perempuan', '0876942233347', 60, 154, 'Pelajar', 14, '2024-07-08', '884-fantasy.jpg'),
+(13, 'Giska', 'Tangerang ', '2024-07-03', 'Tangerang', 'Perempuan', '7474574576457', 456, 456, 'pelazar', 10, '2024-07-03', '707-moon.jpg'),
+(14, 'Dina', 'Mana ', '2024-07-04', 'Depok', 'Perempuan', '46577654', 455, 544, 'Pelajar', 10, '2024-07-22', '910-moon2.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,19 +134,22 @@ CREATE TABLE `tbl_user` (
   `nama_user` varchar(50) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `status` varchar(20) NOT NULL,
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `status`) VALUES
-(1, 'Admin', 'Admin45', '454545', 'admin'),
-(2, 'Amanda', 'amanda45', '456456', 'user'),
-(3, 'Nabila', 'nanabs', '765765', 'user'),
-(4, 'Belvaa', 'ciway45', '654654', 'user'),
-(5, 'amandasz', 'amandasz', '454545', 'user');
+INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `status`, `foto`) VALUES
+(1, 'Admin', 'Admin45', '454545', 'admin', '45-stars.jpg'),
+(2, 'Amandaa', 'amanda45', '456456', 'user', '575-anime.jpg'),
+(3, 'Nabila', 'nanabs', '765765', 'user', ''),
+(4, 'Belvaa', 'ciway45', '654654', 'user', ''),
+(5, 'amandasz', 'amandasz', '454545', 'user', ''),
+(6, 'Nida Amalia', 'nidaaa', '545454', 'user', '12-anime.jpg'),
+(9, 'AmandaSZ', 'amandasz', '454545', 'user', '');
 
 --
 -- Indexes for dumped tables
@@ -180,7 +187,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_anggota`
 --
 ALTER TABLE `tbl_anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_pelatih`
@@ -198,7 +205,7 @@ ALTER TABLE `tbl_sabuk`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

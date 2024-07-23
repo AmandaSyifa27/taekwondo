@@ -1,4 +1,4 @@
-.card-atlet {
+/* .card-atlet {
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
@@ -9,7 +9,7 @@
   }
   
   .card-atlet img {
-    border-radius: 10px; /* Apply rounded corners but keep the image rectangular */
+    border-radius: 10px; 
   }
   
   .card-atlet ul {
@@ -32,4 +32,26 @@
   .cb-atlet ul {
     margin-top: 20px;
   }
-  
+   */
+   
+   .card-atlet {
+    max-width: 300px; /* Adjust the maximum width of the card */
+    margin: auto; /* Center the card horizontally */
+    padding: 1rem; /* Adjust padding inside the card */
+    border-radius: 0.5rem; /* Adjust border-radius for rounded corners */
+}
+
+.card-atlet img {
+    max-width: 100%; /* Ensure the image fits within the card */
+    border-radius: 0.5rem; /* Round the corners of the image */
+}
+
+.card-atlet ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.card-atlet ul li {
+    font-size: 0.875rem; /* Adjust font size for better readability */
+    margin-bottom: 0.5rem; /* Add space between list items */
+}

@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     session_start();
     $_SESSION['username'] = $login['username'];
     $_SESSION['status'] = $login['status'];
+    $_SESSION['id_user'] = $login['id_user'];
 
     if($login['status'] == 'admin'){
       echo "<script language='Javascript'>
