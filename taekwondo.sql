@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2024 at 07:14 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jul 23, 2024 at 01:03 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,8 +79,12 @@ CREATE TABLE `tbl_pelatih` (
 --
 
 INSERT INTO `tbl_pelatih` (`id_pelatih`, `nama_pelatih`, `jabatan`, `id_sabuk`, `foto`) VALUES
-(5, 'Nabilaw', 'pelatih', 11, '388-“Chromatic Horizon”_ The Superb Neon-Noire Art By Tony Skeor – Design You Trust.jfif'),
-(6, 'Belva Calistang', 'Sekretaris', 16, '181-Screenshot (302).png');
+(5, 'Suwiriyadi', 'Kepala Pelatih', 17, '349-Sanim Suwir.jpg'),
+(6, 'Supriyadi', 'Bendahara', 16, '269-Sbm Supri.jpg'),
+(7, 'Esti Dwi Wahyuni', 'Sekretaris', 16, '703-Kak Esti.jpg'),
+(8, 'Belva Calista', 'Asisten Pelatih', 16, '617-Belva.jpg'),
+(9, 'Muhammad Arrifat Dhivanagara', 'Asisten Pelatih', 14, '990-Arrifat.jpg'),
+(10, 'Vilvi Wanda Sandria', 'Asisten Pelatih', 14, '423-Vilvi.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,7 +150,7 @@ INSERT INTO `tbl_user` (`id_user`, `nama_user`, `username`, `password`, `status`
 (1, 'Admin', 'Admin45', '454545', 'admin', '45-stars.jpg'),
 (2, 'Amandaa', 'amanda45', '456456', 'user', '575-anime.jpg'),
 (3, 'Nabila', 'nanabs', '765765', 'user', ''),
-(4, 'Belvaa', 'ciway45', '654654', 'user', ''),
+(4, 'Belvaa', 'ciway45', '654654', 'user', '978-2024-07-20 (20).png'),
 (5, 'amandasz', 'amandasz', '454545', 'user', ''),
 (6, 'Nida Amalia', 'nidaaa', '545454', 'user', '12-anime.jpg'),
 (9, 'AmandaSZ', 'amandasz', '454545', 'user', '');
@@ -193,7 +197,7 @@ ALTER TABLE `tbl_anggota`
 -- AUTO_INCREMENT for table `tbl_pelatih`
 --
 ALTER TABLE `tbl_pelatih`
-  MODIFY `id_pelatih` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pelatih` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_sabuk`

@@ -50,7 +50,7 @@ if (isset($_POST["edit"])) {
                 </div>
                 <div class="card-body text-center">
                     <div class="d-flex justify-content-center">
-                        <img src="../img/<?= $foto; ?>" alt="" id="preview" class="img-thumbnail" width="150px">
+                        <img src="../img/<?= $foto; ?>" alt="" id="preview" class="img-thumbnail" width="300px">
                     </div>
                     <div class="custom-file mt-3">
                         <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)">
