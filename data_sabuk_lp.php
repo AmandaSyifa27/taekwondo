@@ -18,6 +18,13 @@
             </div>
         </div>
     </div>
+    <div class="form-row ml-1">
+    <a href="index.php?page=data_sabuk" class="btn btn-primary btn-icon-split">
+              <span class="icon text-white-50">
+                <i class="fas fa-sync"></i>
+              </span>
+            </a>
+    </div>
 </form>
                 <div class="table-responsive p-3">
                   <?php

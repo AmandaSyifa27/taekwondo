@@ -48,6 +48,11 @@
                       </span>
                       <span class="text">Cetak Data</span>
                   </a>
+                  <a href="index.php?page=data_pelatih" class="btn btn-primary btn-icon-split">
+              <span class="icon text-white-50">
+                <i class="fas fa-sync"></i>
+              </span>
+            </a>
                   </div>
                   <table class="table align-items-center table-flush" id="dataTable">
                     <thead class="thead-light">
