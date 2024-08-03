@@ -1,35 +1,35 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-  include "koneksi.php";
-  $user = $_POST["username"];
-  $password = $_POST["password"];
-  $sql = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE username='$user' AND password='$password'" );
-  $row = mysqli_num_rows($sql);
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    include "koneksi.php";
+    $user = $_POST["username"];
+    $password = $_POST["password"];
+    $sql = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE username='$user' AND password='$password'");
+    $row = mysqli_num_rows($sql);
 
-  if($row > 0){
-    $login = mysqli_fetch_array($sql);
-    session_start();
-    $_SESSION['username'] = $login['username'];
-    $_SESSION['status'] = $login['status'];
-    $_SESSION['id_user'] = $login['id_user'];
+    if ($row > 0) {
+        $login = mysqli_fetch_array($sql);
+        session_start();
+        $_SESSION['username'] = $login['username'];
+        $_SESSION['status'] = $login['status'];
+        $_SESSION['id_user'] = $login['id_user'];
 
-    if($login['status'] == 'admin'){
-      echo "<script language='Javascript'>
-        alert('Login Sebagai Admin Berhasil..!');
-        document.location='admin/index.php';
-        </script>";
-    } elseif($login['status'] == 'user'){
-      echo "<script language='Javascript'>
-        alert('Login Sebagai User Berhasil..!');
-        document.location='user/index.php';
-        </script>";
+        if ($login['status'] == 'admin') {
+            echo "<script language='Javascript'>
+                alert('Login Sebagai Admin Berhasil..!');
+                document.location='admin/index.php';
+                </script>";
+        } elseif ($login['status'] == 'user') {
+            echo "<script language='Javascript'>
+                alert('Login Sebagai User Berhasil..!');
+                document.location='user/index.php';
+                </script>";
+        }
+    } else {
+        echo "<script language='Javascript'>
+            alert('Username atau Password Salah');
+            document.location='login.php';
+            </script>";
     }
-  } else {
-    echo "<script language='Javascript'>
-      alert('Username atau Password Salah');
-      document.location='login.php';
-      </script>";
-  }
 }
 ?>
 

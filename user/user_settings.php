@@ -1,14 +1,29 @@
 <?php
 include "../koneksi.php";
-// session_start();
+session_start(); // Pastikan sesi dimulai
+
+// Periksa apakah pengguna telah login
+if (!isset($_SESSION['id_user'])) {
+    echo "<script>alert('Anda harus login terlebih dahulu');</script>";
+    echo "<script>window.location.href = '../login.php';</script>";
+    exit;
+}
+
 $id_user = $_SESSION['id_user'];
 $data = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE id_user = $id_user");
-$row = mysqli_fetch_assoc($data);
 
-$nama_user = $row['nama_user'];
-$username = $row['username'];
-$password = $row['password'];
-$foto = $row['foto'];
+if ($data && mysqli_num_rows($data) > 0) {
+    $row = mysqli_fetch_assoc($data);
+
+    $nama_user = $row['nama_user'];
+    $username = $row['username'];
+    $password = $row['password'];
+    $foto = $row['foto'];
+} else {
+    echo "<script>alert('Data pengguna tidak ditemukan');</script>";
+    echo "<script>window.location.href = 'index.php';</script>";
+    exit;
+}
 
 if (isset($_POST["edit"])) {
     $nama_user = $_POST["nama_user"];
@@ -29,7 +44,7 @@ if (isset($_POST["edit"])) {
     } else {
         $nama_file = $row["foto"];
     }
-    
+
     $query = "UPDATE tbl_user SET
         nama_user = '$nama_user',
         username = '$username',
@@ -46,6 +61,7 @@ if (isset($_POST["edit"])) {
     }
 }
 ?>
+
 
 <div class="row justify-content-center">
     <div class="col-lg-6">
