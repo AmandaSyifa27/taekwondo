@@ -49,42 +49,36 @@ if (isset($_POST["edit"])) {
     <!-- Form Basic -->
     <div class="card mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Anggota</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Pelatih</h6>
         </div>
         <div class="card-body">
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nama_pelatih">Nama Pelatih</label>
-                    <input name="nama_pelatih" type="text" class="form-control" id="nama_pelatih" placeholder="Masukkan Nama" value="<?= $nama_pelatih ?>">
+                    <input name="nama_pelatih" type="text" class="form-control" id="nama_pelatih" placeholder="Masukkan Nama" value="<?= $nama_pelatih ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="jabatan">Jabatan</label>
-                    <textarea name="jabatan" class="form-control" placeholder="Jabatan saat ini"><?= $jabatan ?></textarea>
+                    <textarea required name="jabatan" class="form-control" placeholder="Jabatan saat ini"><?= $jabatan ?></textarea>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="id_sabuk">Tingkat Sabuk</label>
-                            <select name="id_sabuk" id="tingkatan" class="form-control mb-3">
-                            <option value="">Pilih Tingkatan Sabuk</option>
-                            <?php 
-                            $data = mysqli_query($koneksi, "SELECT * FROM tbl_sabuk");
-                            while($row = mysqli_fetch_array($data)) {
-                                $selected = ($row['id_sabuk'] == $id_sabuk) ? 'selected' : '';
-                                echo "<option value='".$row['id_sabuk']."' $selected>".$row['tingkatan']."</option>";
-                            }
-                            ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                    <div class="form-group">
+                <div class="form-group">
+                    <label for="id_sabuk">Tingkat Sabuk</label>
+                    <select name="id_sabuk" id="tingkatan" class="form-control mb-3" required>
+                        <option value="">Pilih Tingkatan Sabuk</option>
+                        <?php 
+                        $data = mysqli_query($koneksi, "SELECT * FROM tbl_sabuk");
+                        while($row = mysqli_fetch_array($data)) {
+                            $selected = ($row['id_sabuk'] == $id_sabuk) ? 'selected' : '';
+                            echo "<option value='".$row['id_sabuk']."' $selected>".$row['tingkatan']."</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" name="foto" class="custom-file-input" id="foto">
+                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>  
                         <label class="custom-file-label" for="foto">Upload Foto</label>
-                        <embed src="foto_pelatih/<?= $foto ?>" type="" width="100px" class="mt-3">
-                    </div>
-                </div>
+                        <embed id="preview" src="foto_pelatih/<?= $foto ?>" type="" width="100px" class="mt-3">
                     </div>
                 </div>
                 <button type="submit" name="edit" class="btn btn-primary">Edit</button>

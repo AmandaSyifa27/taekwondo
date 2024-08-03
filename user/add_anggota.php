@@ -1,5 +1,5 @@
 
-<div class="col-lg-10 ">
+<div class="col-lg-8 ">
               <!-- Form Basic -->
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -9,7 +9,7 @@
                   <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="nama_anggota">Nama</label>
-                      <input name="nama_anggota" type="text" class="form-control" id="nama_anggota" placeholder="Masukkan Nama">
+                      <input name="nama_anggota" type="text" class="form-control" id="nama_anggota" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
                       <label for="alamat">Alamat</label>
@@ -19,13 +19,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tgl_lahir">Tanggal Lahir</label>
-                                <input name="tgl_lahir" type="date" class="form-control" id="tgl_lahir">
+                                <input name="tgl_lahir" type="date" class="form-control" id="tgl_lahir" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tempat_lahir">Tempat Lahir</label>
-                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir">
+                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir" required>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     <label for="no_hp">Nomor Telepon</label>
-                    <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="08...">
+                    <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="08..." required>
                 </div>
             </div>
                 </div>
@@ -60,20 +60,20 @@
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="berat_badan">Berat Badan</label>
-                            <input name="berat_badan" type="number" class="form-control" id="berat_badan" placeholder="..kg">
+                            <input name="berat_badan" type="number" class="form-control" id="berat_badan" placeholder="..kg" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tinggi_badan">Tinggi Badan</label>
-                                <input name="tinggi_badan" type="number" class="form-control" id="tinggi_badan" placeholder="..cm">
+                                <input name="tinggi_badan" type="number" class="form-control" id="tinggi_badan" placeholder="..cm" required>
                             </div>
                         </div>
                     </div>
                     
                     <div class="form-group">
                       <label for="pekerjaan">Pekerjaan</label>
-                      <input name="pekerjaan" type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan">
+                      <input name="pekerjaan" type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" required>
                     </div>
                         <div class="form-group">
                           <label for="tingkatan">Tingkat Sabuk</label>
@@ -92,8 +92,11 @@
                         </div>
                         <div class="form-group">
                           <div class="custom-file">
-                            <input type="file" name="foto" class="custom-file-input" id="foto">
+                            <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>
                             <label class="custom-file-label" for="foto">Upload Foto</label>
+                          </div>
+                          <div class="mt-3">
+                            <img id="preview" src="" alt="Pratinjau Foto" style="display: none; width: 100px;">
                           </div>
                         </div>              
                     <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>

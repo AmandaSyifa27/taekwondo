@@ -52,7 +52,7 @@ if (isset($_POST["edit"])) {
         <form action="" method="post" enctype="multipart/form-data">
             <div class="card mb-3">
                 <div class="card-header">
-                    <h5 class="card-title">Edit User</h5>
+                    <h5 class="card-title">Edit Profile</h5>
                 </div>
                 <div class="card-body text-center">
                     <div class="d-flex justify-content-center">
@@ -68,15 +68,15 @@ if (isset($_POST["edit"])) {
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nama_user">Nama User</label>
-                        <input type="text" name="nama_user" id="nama_user" class="form-control" value="<?= $nama_user; ?>">
+                        <input type="text" name="nama_user" id="nama_user" class="form-control" value="<?= $nama_user; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control" value="<?= $username; ?>">
+                        <input type="text" name="username" id="username" class="form-control" value="<?= $username; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Ganti Password</label>
-                        <input type="text" name="password" id="password" class="form-control" value="<?= $password; ?>">
+                        <input type="text" name="password" id="password" class="form-control" value="<?= $password; ?>" required>
                     </div>
                     <button type="submit" name="edit" class="btn btn-outline-warning btn-block">Update</button>
                 </div>
@@ -85,16 +85,4 @@ if (isset($_POST["edit"])) {
     </div>
 </div>
 
-<script>
-  function previewImage(event) {
-    var input = event.target;
-    var reader = new FileReader();
-    reader.onload = function() {
-      var dataURL = reader.result;
-      var output = document.getElementById('preview');
-      output.src = dataURL;
-      output.style.display = 'block';
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-</script>
+

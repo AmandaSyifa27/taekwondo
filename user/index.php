@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../koneksi.php";
+
 if(!isset($_SESSION['username']) || $_SESSION['status'] != 'user'){
     echo "<script language='Javascript'>
     alert('Anda tidak memiliki akses ke halaman ini!');
@@ -8,6 +9,7 @@ if(!isset($_SESSION['username']) || $_SESSION['status'] != 'user'){
     </script>";
     exit;
 }
+
 $id_user = $_SESSION['id_user'];
 $query = "SELECT * FROM tbl_user WHERE id_user = $id_user";
 $result = mysqli_query($koneksi, $query);
@@ -17,7 +19,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $foto = $row['foto'];
     $nama_user = $row['nama_user'];
 } else {
-    echo "gagal";
+    $nama_user = "Username";
 }
 ?>
 
@@ -198,7 +200,20 @@ if ($result && mysqli_num_rows($result) > 0) {
   <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="../js/ruang-admin.min.js"></script>
   <script src="../vendor/chart.js/Chart.min.js"></script>
-  <script src="../js/demo/chart-area-demo.js"></script>  
+  <script src="../js/demo/chart-area-demo.js"></script>
+  <script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById('preview');
+      output.src = dataURL;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
 </body>
 
 </html>

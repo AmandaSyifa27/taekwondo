@@ -233,7 +233,20 @@ if ($result && mysqli_num_rows($result) > 0) {
   <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="../js/ruang-admin.min.js"></script>
   <script src="../vendor/chart.js/Chart.min.js"></script>
-  <script src="../js/demo/chart-area-demo.js"></script>  
+  <script src="../js/demo/chart-area-demo.js"></script>
+  <script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById('preview');
+      output.src = dataURL;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
 </body>
 
 </html>

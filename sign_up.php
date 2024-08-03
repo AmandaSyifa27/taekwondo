@@ -64,7 +64,8 @@
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username" name="username" required>
+                  <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username" name="username" required>
+                  <small id="usernameStatus" class="form-text"></small>
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
@@ -97,7 +98,6 @@
 
 </html>
 
-
 <?php
 require "koneksi.php";
 session_start();
@@ -112,15 +112,18 @@ if(isset($_POST['sign-up'])){
   $result = mysqli_query($koneksi, $query);
 
   if($result){
+    $id_user = mysqli_insert_id($koneksi);
     // Set session variables
     $_SESSION['username'] = $username;
     $_SESSION['status'] = $status;
+    $_SESSION['id_user'] = $id_user;
 
     echo "<script>alert('Sign Up Berhasil');</script>";
     echo "<script>window.location.href = 'user/index.php';</script>";
   } else {
     echo "<script>alert('Sign Up Gagal');</script>";
-    // echo "<script>window.location.href = 'index.php';</script>";        
   }
 }
 ?>
+
+

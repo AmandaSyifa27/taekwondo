@@ -76,7 +76,7 @@ if (isset($_POST["edit"])) {
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nama_anggota">Nama</label>
-                    <input name="nama_anggota" type="text" class="form-control" id="nama_anggota" placeholder="Masukkan Nama" value="<?= $nama_anggota ?>">
+                    <input name="nama_anggota" type="text" class="form-control" id="nama_anggota" placeholder="Masukkan Nama" value="<?= $nama_anggota ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
@@ -86,13 +86,13 @@ if (isset($_POST["edit"])) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="tgl_lahir">Tanggal Lahir</label>
-                            <input name="tgl_lahir" type="date" class="form-control" id="tgl_lahir" value="<?= $tgl_lahir ?>">
+                            <input name="tgl_lahir" type="date" class="form-control" id="tgl_lahir" value="<?= $tgl_lahir ?>" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="tempat_lahir">Tempat Lahir</label>
-                            <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir" value="<?= $tempat_lahir ?>">
+                            <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir" value="<?= $tempat_lahir ?>" required>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ if (isset($_POST["edit"])) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="no_hp">Nomor Telepon</label>
-                            <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="08..." value="<?= $no_hp ?>">
+                            <input name="no_hp" type="text" class="form-control" id="no_hp" placeholder="08..." value="<?= $no_hp ?>" required>
                         </div>
                     </div>
                 </div>
@@ -125,19 +125,19 @@ if (isset($_POST["edit"])) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="berat_badan">Berat Badan</label>
-                            <input name="berat_badan" type="number" class="form-control" id="berat_badan" placeholder="..kg" value="<?= $berat_badan ?>">
+                            <input name="berat_badan" type="number" class="form-control" id="berat_badan" placeholder="..kg" value="<?= $berat_badan ?>" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="tinggi_badan">Tinggi Badan</label>
-                            <input name="tinggi_badan" type="number" class="form-control" id="tinggi_badan" placeholder="..cm" value="<?= $tinggi_badan ?>">
+                            <input name="tinggi_badan" type="number" class="form-control" id="tinggi_badan" placeholder="..cm" value="<?= $tinggi_badan ?>" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="pekerjaan">Pekerjaan</label>
-                    <input name="pekerjaan" type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" value="<?= $pekerjaan ?>">
+                    <input name="pekerjaan" type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" value="<?= $pekerjaan ?>" required>
                 </div>
                         <div class="form-group">
                             <label for="id_sabuk">Tingkat Sabuk</label>
@@ -154,9 +154,9 @@ if (isset($_POST["edit"])) {
                         </div>
                 <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" name="foto" class="custom-file-input" id="foto">
+                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>
                         <label class="custom-file-label" for="foto">Upload Foto</label>
-                        <embed src="foto_anggota/<?= $foto ?>" type="" width="100px" class="mt-3">
+                        <embed id="preview" src="foto_anggota/<?= $foto ?>" type="" width="100px" class="mt-3">
                     </div>
                 </div>
                 <button type="submit" name="edit" class="btn btn-primary">Edit</button>

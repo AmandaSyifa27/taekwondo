@@ -9,19 +9,19 @@
                   <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="nama_pelatih">Nama</label>
-                      <input name="nama_pelatih" type="text" class="form-control" id="nama_pelatih" placeholder="Masukkan Nama">
+                      <input name="nama_pelatih" type="text" class="form-control" id="nama_pelatih" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jabatan">Jabatan</label>
-                                <input name="jabatan" type="text" class="form-control" id="jabatan" placeholder="Masukkan Jabatan">
+                                <input name="jabatan" type="text" class="form-control" id="jabatan" placeholder="Masukkan Jabatan" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                         <div class="form-group">
                           <label for="tingkatan">Tingkat Sabuk</label>
-                          <select name="tingkatan" id="" class="form-control mb-3">
+                          <select name="tingkatan" id="" class="form-control mb-3" required>
                           <option value="">Pilih Tingkatan Sabuk</option>
                             <?php 
                             include '../koneksi.php';
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                       <div class="custom-file">
-                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)">
+                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>
                         <label class="custom-file-label" for="foto">Upload Foto</label>
                       </div>
                       <div class="mt-3">
@@ -49,19 +49,6 @@
                   </form>
                 </div>
 </div>
-<script>
-  function previewImage(event) {
-    var input = event.target;
-    var reader = new FileReader();
-    reader.onload = function() {
-      var dataURL = reader.result;
-      var output = document.getElementById('preview');
-      output.src = dataURL;
-      output.style.display = 'block';
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-</script>
 <?php
 
 require "../koneksi.php";

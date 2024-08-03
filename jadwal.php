@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Data Jadwal</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Jadwal Latihan</h6>
             </div>
             <form action="" method="POST" class="p-3">
                 <div class="form-row align-items-end">
