@@ -19,7 +19,7 @@ if(isset($_POST['id_anggota'])){
             break; 
         }
         
-        unlink("foto_anggota/".$file);
+        unlink("../foto_anggota/".$file);
     }
     
     if($success){

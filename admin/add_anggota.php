@@ -125,7 +125,7 @@ if (isset($_POST["tambah"])){
     $lokasi = $_FILES['foto']['tmp_name'];
     $n_random = rand(1,999);
     $nama_file = $n_random. "-".$nama;
-    $folder = 'foto_anggota';
+    $folder = '../foto_anggota';
 
     // upload file
     move_uploaded_file($lokasi, "$folder/$nama_file");

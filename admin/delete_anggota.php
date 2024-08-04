@@ -7,7 +7,7 @@ $data = mysqli_fetch_array($mysqli);
 $query = "DELETE FROM tbl_anggota WHERE id_anggota = '$id'";
 $result = mysqli_query($koneksi, $query);
 
-unlink('foto_anggota/'.$data['foto']);
+unlink('../foto_anggota/'.$data['foto']);
 // Alert
 if ($result) {
     echo "<script>alert('Data berhasil dihapus');</script>";

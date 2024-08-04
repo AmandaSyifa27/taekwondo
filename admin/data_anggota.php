@@ -146,7 +146,7 @@
                     <input type="checkbox" name="id_anggota[]" value="<?= $data['id_anggota'] ?>">
                   </td>
                   <td><?= $i++; ?></td>
-                  <td><img src="foto_anggota/<?= $data['foto'] ?>" alt="Foto Anggota" width="100px"></td>
+                  <td><img src="../foto_anggota/<?= $data['foto'] ?>" alt="Foto Anggota" width="100px"></td>
                   <td><?= $data["nama_anggota"] ?></td>
                   <td><?= $data["alamat"] ?></td>
                   <td><?= $data["tempat_lahir"] ?>, <?= $data["tgl_lahir"] ?></td>

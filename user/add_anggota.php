@@ -99,11 +99,10 @@
                             <img id="preview" src="" alt="Pratinjau Foto" style="display: none; width: 100px;">
                           </div>
                         </div>              
-                    <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                    <button type="submit" target="_blank" name="tambah" class="btn btn-primary">Tambah</button>
                   </form>
                 </div>
 </div>
-
 <?php
 
 require "../koneksi.php";
@@ -119,27 +118,30 @@ if (isset($_POST["tambah"])){
     $tinggi_badan = $_POST["tinggi_badan"];
     $pekerjaan = $_POST["pekerjaan"];
     $tingkatan = $_POST["tingkatan"];
+    $tgl_daftar = date("Y-m-d");
 
     // Foto
     $nama = $_FILES['foto']['name'];
     $lokasi = $_FILES['foto']['tmp_name'];
     $n_random = rand(1,999);
     $nama_file = $n_random. "-".$nama;
-    $folder = 'foto_anggota';
+    $folder = '../foto_anggota';
 
     // upload file
     move_uploaded_file($lokasi, "$folder/$nama_file");
 
-    $query = "INSERT INTO tbl_anggota (`nama_anggota`, `alamat`, `tgl_lahir`, `tempat_lahir`, `jk`, `no_hp`, `berat_badan`, `tinggi_badan`, `pekerjaan`, `id_sabuk`, `foto`) VALUES('$nama_anggota','$alamat','$tgl_lahir','$tempat_lahir','$jk','$no_hp','$berat_badan','$tinggi_badan','$pekerjaan','$tingkatan','$nama_file')";
+    $query = "INSERT INTO tbl_anggota (nama_anggota, alamat, tgl_lahir, tempat_lahir, jk, no_hp, berat_badan, tinggi_badan, pekerjaan, id_sabuk, tgl_daftar, foto) VALUES('$nama_anggota','$alamat','$tgl_lahir','$tempat_lahir','$jk','$no_hp','$berat_badan','$tinggi_badan','$pekerjaan','$tingkatan', '$tgl_daftar', '$nama_file')";
 
     $result = mysqli_query($koneksi, $query);
     if($result){
-      echo "<script>alert('Berhasil Terdaftar');</script>";
-      echo "<script>window.location.href = 'index.php';</script>";
+        $id_anggota = mysqli_insert_id($koneksi); 
+        echo "<script>alert('Berhasil Terdaftar');</script>";
+        echo "<script>
+                window.location.href = 'bukti_pendaftaran.php?id_anggota=$id_anggota';
+              </script>";
     } else {
-      echo "<script>alert('Data gagal ditambah');</script>";
-      echo "<script>window.location.href = 'index.php?page=add_anggota';</script>";     
+        echo "<script>alert('Data gagal ditambah');</script>";
+        echo "<script>window.location.href = 'index.php?page=add_anggota';</script>";     
     }
 }
-
 ?>

@@ -30,12 +30,12 @@ if (isset($_POST["edit"])) {
     $id_sabuk = $_POST["id_sabuk"];
 
     if (!empty($_FILES["foto"]["name"])) {
-        unlink("foto_anggota/" . $row["foto"]);
+        unlink("../foto_anggota/" . $row["foto"]);
         $gambar = $_FILES["foto"]["name"];
         $tmp = $_FILES["foto"]["tmp_name"];
         $n_random = rand(1, 999);
         $nama_file = $n_random . "-" . $gambar;
-        $path = "foto_anggota/" . $nama_file;
+        $path = "../foto_anggota/" . $nama_file;
         move_uploaded_file($tmp, $path);
     } else {
         $nama_file = $row["foto"];
@@ -156,7 +156,7 @@ if (isset($_POST["edit"])) {
                     <div class="custom-file">
                         <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>
                         <label class="custom-file-label" for="foto">Upload Foto</label>
-                        <embed id="preview" src="foto_anggota/<?= $foto ?>" type="" width="100px" class="mt-3">
+                        <embed id="preview" src="../foto_anggota/<?= $foto ?>" type="" width="100px" class="mt-3">
                     </div>
                 </div>
                 <button type="submit" name="edit" class="btn btn-primary">Edit</button>

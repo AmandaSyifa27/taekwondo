@@ -60,7 +60,7 @@ $result = mysqli_query($koneksi, $query);
                     ?>
                     <tr>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $i++ ?></td>
-                        <td style="border: 1px solid #000; padding: 3px 5px"><img src="foto_anggota/<?= $data['foto'] ?>" alt="Foto Anggota" width="100px"></td>
+                        <td style="border: 1px solid #000; padding: 3px 5px"><img src="../foto_anggota/<?= $data['foto'] ?>" alt="Foto Anggota" width="100px"></td>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $data['nama_anggota']; ?></td>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $data['alamat']; ?></td>
                         <td style="border: 1px solid #000; padding: 3px 5px"><?= $data["tempat_lahir"] ?>, <?= $data["tgl_lahir"]?></td>
