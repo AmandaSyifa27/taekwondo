@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2024 at 04:16 PM
+-- Generation Time: Aug 04, 2024 at 02:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -130,6 +130,28 @@ INSERT INTO `tbl_sabuk` (`id_sabuk`, `tingkatan`, `warna`, `jurus`, `jangka_wakt
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_tagihan`
+--
+
+CREATE TABLE `tbl_tagihan` (
+  `id_tagihan` int(11) NOT NULL,
+  `id_anggota` int(11) NOT NULL,
+  `tagihan_bulanan` double NOT NULL,
+  `tunggakan` double NOT NULL,
+  `total_tagihan` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_tagihan`
+--
+
+INSERT INTO `tbl_tagihan` (`id_tagihan`, `id_anggota`, `tagihan_bulanan`, `tunggakan`, `total_tagihan`) VALUES
+(3, 12, 100000, 50000, 150000),
+(4, 6, 100000, 100000, 200000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_user`
 --
 
@@ -175,6 +197,12 @@ ALTER TABLE `tbl_sabuk`
   ADD PRIMARY KEY (`id_sabuk`);
 
 --
+-- Indexes for table `tbl_tagihan`
+--
+ALTER TABLE `tbl_tagihan`
+  ADD PRIMARY KEY (`id_tagihan`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -201,6 +229,12 @@ ALTER TABLE `tbl_pelatih`
 --
 ALTER TABLE `tbl_sabuk`
   MODIFY `id_sabuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `tbl_tagihan`
+--
+ALTER TABLE `tbl_tagihan`
+  MODIFY `id_tagihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
