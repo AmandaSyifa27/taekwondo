@@ -5,10 +5,10 @@
             <td style="font-size: 32; color: blue; text-align:center;"><b>Taekwondo Pemuda Cirebon</b></td>
         </tr>
         <tr>
-            <td style="font-size: 18; text-align: center; padding-top: 10px;">Jl. Ciremai Raya No.04, Kel. Kecapi, Kec. Harjamukti, Kota Cirebon, Jawa Barat</td>
+            <td style="font-size: 18; text-align: center; padding-top: 10px;">Jl. Brigjend Dharsono By pass, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45132</td>
         </tr>
         <tr>
-            <td style="font-size: 18; text-align: center; padding-top: 10px;">Telp: 346745(4556546), Email : Sejahtera@gmail.com</td>
+            <td style="font-size: 18; text-align: center; padding-top: 10px;">Telp: +62 819-5331-9204, Email : amanda.zanah.ti.23@cic.ac.id </td>
         </tr>
     </table><br>
     <div style="border-bottom: 3px dotted gray"></div><br>
@@ -60,7 +60,7 @@
         <tr>
             <td style="text-align: center;">Admin,
                 <p>&nbsp;</p>
-                <u><b>Belva Calistung</b></u>
+                <u><b>Belva Calista</b></u>
             </td>
         </tr>
     </table>

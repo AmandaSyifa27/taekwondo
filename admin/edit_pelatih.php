@@ -76,7 +76,7 @@ if (isset($_POST["edit"])) {
                 </div>
                 <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)" required>  
+                        <input type="file" name="foto" class="custom-file-input" id="foto" onchange="previewImage(event)">  
                         <label class="custom-file-label" for="foto">Upload Foto</label>
                         <embed id="preview" src="foto_pelatih/<?= $foto ?>" type="" width="100px" class="mt-3">
                     </div>
