@@ -98,6 +98,12 @@ if ($result && mysqli_num_rows($result) > 0) {
           <img src="../img/jadwal.png" alt="" width="24px">
           <span>Jadwal</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.php?page=data_tagihan">
+          <img src="../img/tagihan.png" alt="" width="24px">
+          <span>Tagihan</span>
+        </a>
       </li>      
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
@@ -178,8 +184,17 @@ if ($result && mysqli_num_rows($result) > 0) {
               case "data_sabuk":
                 include "../data_sabuk.php";
                 break;
-              case "sementara":
-                include "sementara.php";
+              case "data_tagihan":
+                include "data_tagihan.php";
+                break;
+              case "add_tagihan":
+                include "add_tagihan.php";
+                break;
+              case "edit_tagihan":
+                include "edit_tagihan.php";
+                break;
+              case "delete_tagihan":
+                include "delete_tagihan.php";
                 break;
               case "jadwal":
                 include "../jadwal.php";

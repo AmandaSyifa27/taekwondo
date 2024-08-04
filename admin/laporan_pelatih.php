@@ -53,7 +53,7 @@
                 </tbody>
     </table>
     <p>&nbsp;</p>
-    <table align="border-right" cellspacing="0" cellpadding="0">
+    <table align="right" cellspacing="0" cellpadding="0">
         <tr>
             <td style="text-align: center;">Cirebon, <?= date("d F Y");?></td>
         </tr>
