@@ -49,6 +49,19 @@
                   </form>
                 </div>
 </div>
+<script>
+  function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function() {
+      var dataURL = reader.result;
+      var output = document.getElementById('preview');
+      output.src = dataURL;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
 <?php
 
 require "../koneksi.php";

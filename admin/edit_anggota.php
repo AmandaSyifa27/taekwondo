@@ -164,3 +164,13 @@ if (isset($_POST["edit"])) {
         </div>
     </div>
 </div>
+<script>
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var output = document.getElementById('preview');
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
