@@ -1,4 +1,4 @@
-  <div class="row">
+<div class="row">
     <div class="col-lg-12">
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -93,21 +93,15 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Senin</td>
-                            <td>16.00 - 17.30</td>
-                            <td>Gd. Pemuda KNPI</td>
+                            <td>Rabu</td>
+                            <td>19.00 - 21.00</td>
+                            <td>Kevin Sport Perum</td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>Kamis</td>
-                            <td>16.00 - 17.30</td>
-                            <td>Gd. Pemuda KNPI</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Minggu</td>
-                            <td>10.00 - 11.30</td>
-                            <td>Gd. Pemuda KNPI</td>
+                            <td>Jumat</td>
+                            <td>19.00 - 21.00</td>
+                            <td>Kevin Sport Perum</td>
                         </tr>
                     </tbody>
                 </table>
